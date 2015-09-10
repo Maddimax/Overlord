@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>Images/Border.png</file>
+        <file>Database.qml</file>
+        <file>Toolbar.qml</file>
+        <file>Images/Hearthstone.jpg</file>
+        <file>Content.qml</file>
+        <file>Marquee.qml</file>
+    </qresource>
+</RCC>
