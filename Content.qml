@@ -1,23 +1,30 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Dialogs 1.2
+import QtQuick.Layouts 1.1
+import QtGraphicalEffects 1.0
 
 import QtMultimedia 5.5
 
 Item {
-	Image {
-		id: fakeGame
-		source: "./Images/Hearthstone.jpg"
-		anchors.centerIn: parent
-	}
+    //layer.enabled: true
 
 	Marquee {
+        id: topMarquee
 		anchors.left: parent.left
 		anchors.right: parent.right
 		height: 50
 
 		text: "Donators in September 2015: Marcus: 3$, Tobi: 4$, Schiff: 5$"
 	}
+
+    Glow {
+        anchors.fill: topMarquee
+        radius: 16
+        samples: 16
+        color: "#0007ff"
+        source: topMarquee
+    }
 
 	Item {
 		id: cameraView
@@ -49,6 +56,20 @@ Item {
 			verticalTileMode: BorderImage.Stretch
 		}
 	}
+
+
+    RowLayout {
+        anchors.centerIn: parent
+
+        TextLine {
+            text: "New Subscriber: "
+        }
+        JumpingText {
+            text: "DansGameNutz"
+        }
+    }
+
+
 
 	Rectangle {
 		color: "black"

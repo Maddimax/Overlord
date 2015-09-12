@@ -22,7 +22,7 @@ Item {
 						tx.executeSql('CREATE TABLE IF NOT EXISTS Scenes(name TEXT)');
 
 						// Add (another) greeting row
-						/*tx.executeSql('INSERT INTO Scenes VALUES(?)', [ 'Default' ]);
+/*                        tx.executeSql('INSERT INTO Scenes VALUES(?)', [ 'Default' ]);
 						tx.executeSql('INSERT INTO Scenes VALUES(?)', [ 'Hearthstone' ]);
 						tx.executeSql('INSERT INTO Scenes VALUES(?)', [ 'HOTS' ]);
 */

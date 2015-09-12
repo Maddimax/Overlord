@@ -1,0 +1,5 @@
+#ifndef WINCAP_TXT
+#define WINCAP_TXT
+
+#endif // WINCAP_TXT
+

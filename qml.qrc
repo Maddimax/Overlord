@@ -8,5 +8,10 @@
         <file>Images/Hearthstone.jpg</file>
         <file>Content.qml</file>
         <file>Marquee.qml</file>
+        <file>Twitch.qml</file>
+        <file>Settings/TwitchSettings.qml</file>
+        <file>SettingsWindow.qml</file>
+        <file>JumpingText.qml</file>
+        <file>TextLine.qml</file>
     </qresource>
 </RCC>

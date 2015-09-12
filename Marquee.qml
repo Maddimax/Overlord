@@ -1,11 +1,19 @@
 import QtQuick 2.0
 
-Item {
+Text {
 	id: marquee
 
 	property string text
 	property string divider: " --- "
 	property real timePerRevolution: 20000
+
+    color: "white"
+    style: Text.Outline;
+    styleColor: "black"
+    font.pixelSize: height -2
+    font.family: app.defaultFont.family
+    font.bold: app.defaultFont.bold
+
 
 	onTextChanged: {
 		updateText();
@@ -51,10 +59,10 @@ Item {
 
 		font.family: app.defaultFont.family
 
-		color: "white"
-		style: Text.Outline;
-		styleColor: "black"
-		font.pixelSize: parent.height -2
+        color: parent.color
+        style: parent.style
+        styleColor: parent.styleColor
+        font.pixelSize: parent.font.pixelSize
 		anchors.verticalCenter: parent.verticalCenter
 	}
 }
