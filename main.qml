@@ -8,127 +8,127 @@ import Qt.labs.settings 1.0
 import QtWebKit 3.0
 
 ApplicationWindow {
-    id: app
-    visible: true
-    title: qsTr("Overlord")
+	id: app
+	visible: true
+	title: qsTr("Overlord")
 
-    property real baseWidth: 1920
-    property real baseHeight: 1080
+	property real baseWidth: 1920
+	property real baseHeight: 1080
 
-    property font defaultFont;
+	property font defaultFont;
 
-    defaultFont {
-        family: "Calibri"
-        pixelSize: 30
-        bold: true
-    }
+	defaultFont {
+		family: "Calibri"
+		pixelSize: 30
+		bold: true
+	}
 
-    property alias twitchApi: twitchLogin.twitchApi
+	property alias twitchApi: twitchLogin.twitchApi
 
-    property Settings twitchSettings: Settings {
-        category: "Twitch"
-        property string channel;
-        onChannelChanged: {
-            console.log("XX_New Channel:", channel)
-        }
-    }
+	property Settings twitchSettings: Settings {
+		category: "Twitch"
+		property string channel;
+		onChannelChanged: {
+			console.log("XX_New Channel:", channel)
+		}
+	}
 
-    Twitch {
-        id: twitchLogin
-        channel: twitchSettings.channel
-    }
+	Twitch {
+		id: twitchLogin
+		channel: twitchSettings.channel
+	}
 
-    flags: Qt.FramelessWindowHint
-    color: "transparent"
+	color: "transparent"
+	flags: Qt.NoDropShadowWindowHint | Qt.FramelessWindowHint
 
-    width: app.baseWidth
-    height: app.baseHeight + 20
+	width: app.baseWidth
+	height: app.baseHeight + 20
 
 
-    property real scaleFactor: width / baseWidth
+	property real scaleFactor: width / baseWidth
 
-    //toolBar: Toolbar { }
+	//toolBar: Toolbar { }
 
-    /* Toolbar {
+	/* Toolbar {
 
-    }*/
+		}*/
 
-    property Database database : Database { }
+	property Database database : Database { }
 
-    onClosing: {
-        Qt.quit();
-    }
+	onClosing: {
+		Qt.quit();
+	}
 
-    Camera {
-        id: camera
+	Camera {
+		id: camera
 
-        imageProcessing.whiteBalanceMode: CameraImageProcessing.WhiteBalanceFlash
+		imageProcessing.whiteBalanceMode: CameraImageProcessing.WhiteBalanceFlash
 
-        exposure {
-            exposureCompensation: -1.0
-            exposureMode: Camera.ExposurePortrait
-        }
+		exposure {
+			exposureCompensation: -1.0
+			exposureMode: Camera.ExposurePortrait
+		}
 
-        flash.mode: Camera.FlashRedEyeReduction
+		flash.mode: Camera.FlashRedEyeReduction
 
-        /*imageCapture {
-            onImageCaptured: {
-                photoPreview.source = preview  // Show the preview in an Image
-            }
-        }*/
-    }
+		/*imageCapture {
+						onImageCaptured: {
+								photoPreview.source = preview  // Show the preview in an Image
+						}
+				}*/
+	}
 
-    Item {
-        id: content
+	Item {
+		id: content
 
-        width: app.baseWidth
-        height: app.baseHeight
+		width: app.baseWidth
+		height: app.baseHeight
 
-        transform: Scale {
-            xScale: app.scaleFactor
-            yScale: app.scaleFactor
-        }
+		transform: Scale {
+			xScale: app.scaleFactor
+			yScale: app.scaleFactor
+		}
 
-        Content {
-            anchors.fill: parent
-        }
-    }
+		Content {
+			anchors.fill: parent
+		}
+	}
 
-    SettingsWindow {
-        id: settingsWindow
-    }
+	SettingsWindow {
+		id: settingsWindow
+	}
 
-    menuBar: MenuBar {
-        Menu {
-            title: "File"
-            MenuItem {
-                text: "Quit"
-                shortcut: "Ctrl+Q"
-                onTriggered: Qt.quit()
-            }
-        }
+	menuBar: MenuBar {
+		Menu {
+			title: "File"
+			MenuItem {
+				text: "Quit"
+				shortcut: "Ctrl+Q"
+				onTriggered: Qt.quit()
+			}
+		}
 
-        Menu {
-            title: "Edit"
-            MenuItem {
-                text: "Settings"
+		Menu {
+			title: "Edit"
+			MenuItem {
+				text: "Settings"
 
-                shortcut: "Ctrl+,"
+				shortcut: "Ctrl+,"
 
-                onTriggered: {
-                    settingsWindow.visible = true
-                    settingsWindow.raise();
-                }
-            }
-        }
+				onTriggered: {
+					settingsWindow.visible = true
+					settingsWindow.raise();
+				}
+			}
+		}
 
-        Menu {
-            title: "Twitch"
-            MenuItem {
-                text: "Login"
-            }
-        }
-    }
+		Menu {
+			title: "Twitch"
+			MenuItem {
+				text: "Login"
+			}
+		}
+	}
 
 
 }

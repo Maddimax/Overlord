@@ -7,10 +7,10 @@ import QtGraphicalEffects 1.0
 import QtMultimedia 5.5
 
 Item {
-    //layer.enabled: true
+	//layer.enabled: true
 
 	Marquee {
-        id: topMarquee
+		id: topMarquee
 		anchors.left: parent.left
 		anchors.right: parent.right
 		height: 50
@@ -18,17 +18,17 @@ Item {
 		text: "Donators in September 2015: Marcus: 3$, Tobi: 4$, Schiff: 5$"
 	}
 
-    Glow {
-        anchors.fill: topMarquee
-        radius: 16
-        samples: 16
-        color: "#0007ff"
-        source: topMarquee
-    }
+	Glow {
+		anchors.fill: topMarquee
+		radius: 16
+		samples: 16
+		color: "#0007ff"
+		source: topMarquee
+	}
 
-	Item {
+	Rectangle {
 		id: cameraView
-
+		color: "black"
 		anchors.right: parent.right
 		anchors.bottom: parent.bottom
 
@@ -58,16 +58,16 @@ Item {
 	}
 
 
-    RowLayout {
-        anchors.centerIn: parent
+	RowLayout {
+		anchors.centerIn: parent
 
-        TextLine {
-            text: "New Subscriber: "
-        }
-        JumpingText {
-            text: "DansGameNutz"
-        }
-    }
+		TextLine {
+			text: "New Subscriber: "
+		}
+		JumpingText {
+			jumpingText: "DansGameNutz"
+		}
+	}
 
 
 
